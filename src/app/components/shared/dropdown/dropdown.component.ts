@@ -1,4 +1,4 @@
-import { Component,HostListener,ElementRef } from '@angular/core';
+import { Component, HostListener, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-dropdown',
@@ -6,13 +6,12 @@ import { Component,HostListener,ElementRef } from '@angular/core';
   styleUrls: ['./dropdown.component.css']
 })
 export class DropdownComponent {
-  isMenuOpen = false; // Initially, the menu is closed
+  isMenuOpen = false;
 
-  constructor(private elRef: ElementRef) {}
+  constructor(private elRef: ElementRef) { }
   @HostListener('document:click', ['$event'])
   onClickOutside(event: Event) {
     if (!this.elRef.nativeElement.contains(event.target)) {
-      // Clicked outside the menu; close the menu
       this.isMenuOpen = false;
     }
   }
